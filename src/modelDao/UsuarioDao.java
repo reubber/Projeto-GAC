@@ -31,7 +31,7 @@ public class UsuarioDao {
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar!:" +ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar!: Já existe esse usuario cadastrado");
         }finally{
             conexao.closeConnection();
         }

@@ -15,6 +15,7 @@ private String descricao;
 private String curso;
 private String categoria;
 private String pesquisa;
+private String matricula;
 
 public Atividade(){
 
@@ -73,6 +74,20 @@ public Atividade(){
      */
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    /**
+     * @return the aluno
+     */
+    public String getAluno() {
+        return matricula;
+    }
+
+    /**
+     * @param aluno the aluno to set
+     */
+    public void setAluno(String aluno) {
+        this.matricula = aluno;
     }
     
     

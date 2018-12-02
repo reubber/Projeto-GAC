@@ -24,18 +24,21 @@ public class AtividadeDao {
     
     
     public void create(Atividade atv){
-        conexao.getConexao();
         buscarCatCod(atv.getCategoria());
+        conexao.getConexao();
+        
         PreparedStatement stmt;
         
         try {
             
             
-            stmt = conexao.con.prepareStatement("insert into atividades (nome_atv,descricao,curso,categ_atv) VALUES(?,?,?,?)");
+            stmt = conexao.con.prepareStatement("insert into atividades (nome_atv,descricao,curso,categ_atv,matricula) VALUES(?,?,?,?,?)");
             stmt.setString(1,atv.getNome());
             stmt.setString(2,atv.getDescricao());
             stmt.setString(3,atv.getCurso());
             stmt.setInt(4, catCod);
+            stmt.setString(5,atv.getAluno());
+            
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
             
@@ -58,6 +61,7 @@ public class AtividadeDao {
             stmt.setInt(4, catCod);
             stmt.setInt(5, atv.getCodigo());
             stmt.execute();
+            
             JOptionPane.showMessageDialog(null,"dados alterados com êxito!!");
             
         } catch (SQLException ex) {
@@ -117,7 +121,7 @@ public Atividade search(Atividade atv){
         }
             finally
         {
-            conexao.closeConnection();
+           
             
         }
         }

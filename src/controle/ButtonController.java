@@ -45,8 +45,10 @@ public class ButtonController {
     
     public void pesquisarAtvButtonAct(){
         
+        
         atvmodel.setPesquisa(atview.getjTextFieldPesquisar().getText());
         Atividade atv;
+        
         atv = atvdao.search(atvmodel);
         atview.getjTextFieldCod().setText(String.valueOf(atv.getCodigo()));
         atview.getjTextFieldName().setText(atv.getNome());
@@ -61,10 +63,12 @@ public class ButtonController {
     }
     
     public void editarAtvButtonAct(){
-        
+       
         atview.setFlag(2);
+        
         atview.permitirCampos();
         atview.desabilitarB();
+        
         atview.getjButtonSalvar().setEnabled(true);
         atview.getjButtonCancelar().setEnabled(true);
         atview.preencherTabelas("SELECT *FROM atividades order by nome_atv");
@@ -141,28 +145,30 @@ public class ButtonController {
     
     public void salvarUserButtonAct(){
         
-        if(uview.getjTextFieldUser().getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"campo vazio");
+        if(uview.getjTextFieldUser().getText().isEmpty()&&uview.getjPasswordFieldPt1().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"algum campo vazio");
             uview.getjTextFieldUser().requestFocus();
         }
-        else if(uview.getjPasswordFieldPt1()!=uview.getjPasswordFieldPt2()){
-            JOptionPane.showMessageDialog(null, "erro ao confirmar senha do usuario corretamente");
+        
+        if(uview.getjPasswordFieldPt2().getText().equals(uview.getjPasswordFieldPt1().getText())){
+       
+            umodel.setUsername(uview.getjTextFieldUser().getText());
+            umodel.setPassword(uview.getjPasswordFieldPt1().getText());
+            umodel.setTipo((String) uview.getjComboBoxTipo().getSelectedItem());
+            udao.create(umodel);   
+            a= new TelaPrincipal(null);
+            a.show();
+            uview.dispose();
+        
+                }else{
+             JOptionPane.showMessageDialog(null, "erro ao confirmar senha do usuario corretamente");
             uview.getjPasswordFieldPt1().setText("");
             uview.getjPasswordFieldPt2().setText("");
             uview.getjPasswordFieldPt2().requestFocus();
         
-                }
         
-        else{
         
-        umodel.setUsername(uview.getjTextFieldUser().getText());
-        umodel.setPassword(uview.getjPasswordFieldPt1().getText());
-        umodel.setTipo((String) uview.getjComboBoxTipo().getSelectedItem());
-        udao.create(umodel);
         
-        a= new TelaPrincipal(null);
-        a.show();
-        uview.dispose();
         }
         
     }
