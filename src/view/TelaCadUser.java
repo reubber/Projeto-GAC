@@ -183,7 +183,7 @@ public class TelaCadUser extends javax.swing.JFrame {
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
         controller.salvarUserButtonAct();
         
-        dispose();
+        
     }//GEN-LAST:event_buttonSalvarActionPerformed
 
     /**

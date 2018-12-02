@@ -21,12 +21,13 @@ import view.TelaPrincipal;
 
 public class ButtonController {
      TelaPrincipal a;
-     Atividade atvmodel = new Atividade();
-     FormAtiv atview = new FormAtiv();
-     TelaCadUser uview = new TelaCadUser();
+     Atividade atvmodel;
+     FormAtiv atview;
+     TelaCadUser uview;
      AtividadeDao atvdao = new AtividadeDao();
-     Usuario umodel = new Usuario();
+     Usuario umodel;
      UsuarioDao udao = new UsuarioDao();
+     
     
     
     
@@ -110,7 +111,8 @@ public class ButtonController {
             atvmodel.setNome(atview.getjTextFieldName().getText());
             atvmodel.setDescricao(atview.getjTextAreaDescricao().getText());
             atvmodel.setCurso((String) atview.getjComboBoxCursos().getSelectedItem());
-           
+            atvmodel.setCategoria((String)atview.getjComboBoxCat().getSelectedItem());
+            
             atvdao.create(atvmodel);
             atview.getjButtonCancelar().setEnabled(false);
             atview.limparCampos();
@@ -124,6 +126,7 @@ public class ButtonController {
             atvmodel.setNome(atview.getjTextFieldName().getText());
             atvmodel.setCurso((String) atview.getjComboBoxCursos().getSelectedItem());
             atvmodel.setDescricao(atview.getjTextAreaDescricao().getText());
+            atvmodel.setCategoria((String)atview.getjComboBoxCat().getSelectedItem());
             atvdao.editar(atvmodel);
             atview.getjButtonCancelar().setEnabled(false);
             atview.desabilitarB();
@@ -138,14 +141,29 @@ public class ButtonController {
     
     public void salvarUserButtonAct(){
         
+        if(uview.getjTextFieldUser().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"campo vazio");
+            uview.getjTextFieldUser().requestFocus();
+        }
+        else if(uview.getjPasswordFieldPt1()!=uview.getjPasswordFieldPt2()){
+            JOptionPane.showMessageDialog(null, "erro ao confirmar senha do usuario corretamente");
+            uview.getjPasswordFieldPt1().setText("");
+            uview.getjPasswordFieldPt2().setText("");
+            uview.getjPasswordFieldPt2().requestFocus();
+        
+                }
+        
+        else{
         
         umodel.setUsername(uview.getjTextFieldUser().getText());
         umodel.setPassword(uview.getjPasswordFieldPt1().getText());
         umodel.setTipo((String) uview.getjComboBoxTipo().getSelectedItem());
         udao.create(umodel);
+        
         a= new TelaPrincipal(null);
         a.show();
-              
+        uview.dispose();
+        }
         
     }
        

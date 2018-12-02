@@ -13,9 +13,13 @@ private int codigo;
 private String nome;
 private String descricao;
 private String curso;
-private Categoria categoria;
+private String categoria;
 private String pesquisa;
 
+public Atividade(){
+
+
+}
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -60,14 +64,14 @@ private String pesquisa;
     /**
      * @return the categoria
      */
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
     

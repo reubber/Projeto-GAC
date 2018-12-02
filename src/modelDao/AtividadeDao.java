@@ -7,11 +7,9 @@ package modelDao;
 
 import connection.ConnectionBD;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modeloBeans.Atividade;
-import modeloBeans.Categoria;
+
 
 
 /**
@@ -27,12 +25,13 @@ public class AtividadeDao {
     
     public void create(Atividade atv){
         conexao.getConexao();
+        buscarCatCod(atv.getCategoria());
         PreparedStatement stmt;
         
         try {
             
-            buscarCatCod(atv.getCategoria().getNome());
-            stmt = conexao.con.prepareStatement("insert into atividades(nome_atv,descricao,curso,categ_atv)VALUES(?,?,?,?)");
+            
+            stmt = conexao.con.prepareStatement("insert into atividades (nome_atv,descricao,curso,categ_atv) VALUES(?,?,?,?)");
             stmt.setString(1,atv.getNome());
             stmt.setString(2,atv.getDescricao());
             stmt.setString(3,atv.getCurso());
@@ -49,8 +48,9 @@ public class AtividadeDao {
     
     public void editar(Atividade atv){
         conexao.getConexao();
-        
+        buscarCatCod(atv.getCategoria());
         try {
+            
             PreparedStatement stmt = conexao.con.prepareStatement("UPDATE atividades set nome_atv=?,descricao=?,curso=?,categ_atv=? WHERE cod_atv=?");
             stmt.setString(1, atv.getNome());
             stmt.setString(2, atv.getDescricao());
@@ -106,14 +106,20 @@ public Atividade search(Atividade atv){
 
         public void buscarCatCod(String nome){
             conexao.getConexao();
-            conexao.executaSql("SELECT *FROM atividades where categ_nome='"+nome+"'");
+            conexao.executaSql("select *from categorias where categ_nome ='"+nome+"'");
         try {
+            
             conexao.rs.first();
             catCod = conexao.rs.getInt("id_categ");
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"erro ao encontra o index da categoria"+ ex);
         }
+            finally
+        {
             conexao.closeConnection();
+            
+        }
         }
     
     

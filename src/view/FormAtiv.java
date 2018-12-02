@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
-import modeloBeans.Categoria;
+import modeloBeans.Atividade;
 import modeloBeans.Tabela;
 
 /**
@@ -111,7 +111,7 @@ public class FormAtiv extends javax.swing.JFrame {
         return jTextFieldName;
     }
         ConnectionBD conexao = new ConnectionBD();
-        Categoria model;
+        Atividade model;
         public ButtonController controller;
     
         private int flag =0;
@@ -129,7 +129,7 @@ public class FormAtiv extends javax.swing.JFrame {
         
        
         ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"ID","Nome","Curso","Descrição"};
+        String[] colunas = new String[]{"ID","Nome","Curso","Descrição","Categoria"};
         conexao.getConexao();
         conexao.executaSql(sql);
        
@@ -137,7 +137,7 @@ public class FormAtiv extends javax.swing.JFrame {
         {
           conexao.rs.first();
             do{
-            dados.add(new Object[]{conexao.rs.getInt("cod_atv"),conexao.rs.getString("nome_atv"),conexao.rs.getString("curso"),conexao.rs.getString("descricao")});
+            dados.add(new Object[]{conexao.rs.getInt("cod_atv"),conexao.rs.getString("nome_atv"),conexao.rs.getString("curso"),conexao.rs.getString("descricao"),conexao.rs.getString("categ_atv")});
             
             }while(conexao.rs.next());
             
@@ -502,8 +502,10 @@ public class FormAtiv extends javax.swing.JFrame {
         getjTableDadosAtividade().getColumnModel().getColumn(1).setResizable(false);
         getjTableDadosAtividade().getColumnModel().getColumn(2).setPreferredWidth(155); 
         getjTableDadosAtividade().getColumnModel().getColumn(2).setResizable(false);
-        getjTableDadosAtividade().getColumnModel().getColumn(3).setPreferredWidth(380);  
-        getjTableDadosAtividade().getColumnModel().getColumn(3).setResizable(false);
+        getjTableDadosAtividade().getColumnModel().getColumn(3).setPreferredWidth(350);  
+        getjTableDadosAtividade().getColumnModel().getColumn(3).setResizable(true);
+        getjTableDadosAtividade().getColumnModel().getColumn(4).setPreferredWidth(55);  
+        getjTableDadosAtividade().getColumnModel().getColumn(4).setResizable(true);
   
         getjTableDadosAtividade().getTableHeader().setReorderingAllowed(false);             //cmd onde desabilita a reodernar o cabeçalho
         getjTableDadosAtividade().setAutoResizeMode(getjTableDadosAtividade().AUTO_RESIZE_OFF);  //cmd onde usuario nao vai poder redimencionar essa tabela
