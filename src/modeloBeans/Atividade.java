@@ -16,6 +16,7 @@ private String curso;
 private String categoria;
 private String pesquisa;
 private String matricula;
+private String situacao;
 
 public Atividade(){
 
@@ -88,6 +89,20 @@ public Atividade(){
      */
     public void setAluno(String aluno) {
         this.matricula = aluno;
+    }
+
+    /**
+     * @return the situacao
+     */
+    public String getSituacao() {
+        return situacao;
+    }
+
+    /**
+     * @param situacao the situacao to set
+     */
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
     
     

@@ -54,6 +54,8 @@ public class ButtonController {
         atview.getjTextFieldName().setText(atv.getNome());
         atview.getjTextAreaDescricao().setText(atv.getDescricao());
         atview.getjComboBoxCursos().setSelectedItem(atv.getCurso());
+        atview.getjTextFieldMat().setText(atv.getAluno());
+        atview.getjLabelPendente().setText(atv.getSituacao());
         atview.preencherTabelas("SELECT *FROM atividades where nome_atv like'%"+atv.getPesquisa()+"%'"); 
         atview.desabilitarB();
         atview.bloquearCampos();
@@ -116,9 +118,12 @@ public class ButtonController {
             atvmodel.setDescricao(atview.getjTextAreaDescricao().getText());
             atvmodel.setCurso((String) atview.getjComboBoxCursos().getSelectedItem());
             atvmodel.setCategoria((String)atview.getjComboBoxCat().getSelectedItem());
+            atvmodel.setAluno(atview.getjTextFieldMat().getText());
+            atvmodel.setSituacao("pendente");
             
             atvdao.create(atvmodel);
             atview.getjButtonCancelar().setEnabled(false);
+            atview.getjComboBoxCat().setEnabled(false);
             atview.limparCampos();
             atview.desabilitarB();
             atview.bloquearCampos();

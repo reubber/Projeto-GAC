@@ -32,12 +32,13 @@ public class AtividadeDao {
         try {
             
             
-            stmt = conexao.con.prepareStatement("insert into atividades (nome_atv,descricao,curso,categ_atv,matricula) VALUES(?,?,?,?,?)");
+            stmt = conexao.con.prepareStatement("insert into atividades (nome_atv,descricao,curso,categ_atv,matricula,situacao) VALUES(?,?,?,?,?,?)");
             stmt.setString(1,atv.getNome());
             stmt.setString(2,atv.getDescricao());
             stmt.setString(3,atv.getCurso());
             stmt.setInt(4, catCod);
             stmt.setString(5,atv.getAluno());
+            stmt.setString(6,atv.getSituacao());
             
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
@@ -97,6 +98,9 @@ public Atividade search(Atividade atv){
             atv.setNome(conexao.rs.getString("nome_atv"));
             atv.setDescricao(conexao.rs.getString("descricao"));
             atv.setCurso(conexao.rs.getString("curso"));
+            atv.setAluno(conexao.rs.getString("matricula"));
+            atv.setSituacao(conexao.rs.getString("situacao"));
+            
             
             
         } catch (SQLException ex) {

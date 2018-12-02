@@ -76,6 +76,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanelCabeçalho.setBackground(new java.awt.Color(255, 153, 153));
 
+        button1.setBackground(new java.awt.Color(255, 255, 255));
         button1.setLabel("button1");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +84,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        button2.setBackground(new java.awt.Color(255, 255, 255));
         button2.setLabel("button2");
         button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelBG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
 
         jLabelUser.setText("jLabel2");
-        jPanelBG.add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 100, -1));
+        jPanelBG.add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
