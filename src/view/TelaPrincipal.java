@@ -49,6 +49,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelCabeçalho = new javax.swing.JPanel();
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
+        jButtonLista = new javax.swing.JButton();
         jLabelHead = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
         jLabelUser = new javax.swing.JLabel();
@@ -92,6 +93,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButtonLista.setText("jButton1");
+        jButtonLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCabeçalhoLayout = new javax.swing.GroupLayout(jPanelCabeçalho);
         jPanelCabeçalho.setLayout(jPanelCabeçalhoLayout);
         jPanelCabeçalhoLayout.setHorizontalGroup(
@@ -101,15 +109,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(103, 103, 103)
                 .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(jButtonLista)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanelCabeçalhoLayout.setVerticalGroup(
             jPanelCabeçalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCabeçalhoLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanelCabeçalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelCabeçalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(jButtonLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -129,7 +140,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBG, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelBG, javax.swing.GroupLayout.PREFERRED_SIZE, 736, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +183,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_button2ActionPerformed
 
+    private void jButtonListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaActionPerformed
+        TelaPendecias view = new TelaPendecias();
+        view.show();
+        dispose();
+    }//GEN-LAST:event_jButtonListaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,6 +228,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private java.awt.Button button2;
+    private javax.swing.JButton jButtonLista;
     private javax.swing.JLabel jLabel1;
     private java.awt.Label jLabelHead;
     private javax.swing.JLabel jLabelUser;
