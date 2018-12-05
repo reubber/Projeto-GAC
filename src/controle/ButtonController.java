@@ -5,6 +5,7 @@
  */
 package controle;
 
+import façade.Facade;
 import javax.swing.JOptionPane;
 import modelDao.AtividadeDao;
 import modelDao.UsuarioDao;
@@ -20,13 +21,16 @@ import view.TelaPrincipal;
  */
 
 public class ButtonController {
-     TelaPrincipal a;
+     
+    TelaPrincipal aview = new TelaPrincipal();
      Atividade atvmodel;
      FormAtiv atview;
      TelaCadUser uview;
-     AtividadeDao atvdao = new AtividadeDao();
      Usuario umodel;
+     AtividadeDao atvdao = new AtividadeDao();
      UsuarioDao udao = new UsuarioDao();
+     Facade facade = new Facade();
+     
      
     
     
@@ -41,6 +45,11 @@ public class ButtonController {
         this.atview = view;
     }
     
+    public ButtonController(TelaPrincipal view){
+        
+        this.aview = view;
+    }
+    
     
     
     public void pesquisarAtvButtonAct(){
@@ -49,7 +58,7 @@ public class ButtonController {
         atvmodel.setPesquisa(atview.getjTextFieldPesquisar().getText());
         Atividade atv;
         
-        atv = atvdao.search(atvmodel);
+        atv = facade.pesquisar(atvmodel);
         atview.getjTextFieldCod().setText(String.valueOf(atv.getCodigo()));
         atview.getjTextFieldName().setText(atv.getNome());
         atview.getjTextAreaDescricao().setText(atv.getDescricao());
@@ -94,7 +103,7 @@ public class ButtonController {
         int i = JOptionPane.showConfirmDialog(null,"Deseja realmente excluir essa atividade?");
         if(i == JOptionPane.YES_OPTION){
             atvmodel.setCodigo(Integer.parseInt(atview.getjTextFieldCod().getText()));
-            atvdao.excluir(atvmodel);
+            facade.excluir(atvmodel);
             atview.limparCampos();
             atview.desabilitarB();
             atview.bloquearCampos();
@@ -121,7 +130,7 @@ public class ButtonController {
             atvmodel.setAluno(atview.getjTextFieldMat().getText());
             atvmodel.setSituacao("pendente");
             
-            atvdao.create(atvmodel);
+            facade.create(atvmodel);
             atview.getjButtonCancelar().setEnabled(false);
             atview.getjComboBoxCat().setEnabled(false);
             atview.limparCampos();
@@ -136,7 +145,7 @@ public class ButtonController {
             atvmodel.setCurso((String) atview.getjComboBoxCursos().getSelectedItem());
             atvmodel.setDescricao(atview.getjTextAreaDescricao().getText());
             atvmodel.setCategoria((String)atview.getjComboBoxCat().getSelectedItem());
-            atvdao.editar(atvmodel);
+            facade.editar(atvmodel);
             atview.getjButtonCancelar().setEnabled(false);
             atview.desabilitarB();
             atview.limparCampos();
@@ -160,9 +169,9 @@ public class ButtonController {
             umodel.setUsername(uview.getjTextFieldUser().getText());
             umodel.setPassword(uview.getjPasswordFieldPt1().getText());
             umodel.setTipo((String) uview.getjComboBoxTipo().getSelectedItem());
-            udao.create(umodel);   
-            a= new TelaPrincipal(null);
-            a.show();
+            facade.createUser(umodel);   
+            aview = new TelaPrincipal(uview.getjLabelLogin().getText());
+            aview.show();
             uview.dispose();
         
                 }else{
@@ -177,13 +186,19 @@ public class ButtonController {
         }
         
     }
-       
+       public void voltarTp(){
+           aview = new TelaPrincipal(atview.getjLabelLoginA().getText());
+           atview.dispose();
+           aview.show();
+       }
+    
+    
+       public void butaoAcessarAct(){
         
-   /* public void atualizarjTable(){
+            aview=udao.consulta();
             
-            tdao.preencherTabelas("SELECT *FROM atividades order by nome_atv");
-            
-    }*/
+       
    
+}
 }
 

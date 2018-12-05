@@ -6,6 +6,7 @@
 package view;
 
 import connection.ConnectionBD;
+import controle.ButtonController;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.sql.SQLException;
 import java.util.TimerTask;
@@ -17,6 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class TelaLogin extends javax.swing.JFrame {
     ConnectionBD conexao = new ConnectionBD();
+    TelaPrincipal view;
+    ButtonController controller;
     /**
      * Creates new form Login
      */
@@ -101,6 +104,11 @@ public class TelaLogin extends javax.swing.JFrame {
         buttonAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAcessarActionPerformed(evt);
+            }
+        });
+        buttonAcessar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buttonAcessarKeyPressed(evt);
             }
         });
 
@@ -226,27 +234,29 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioFocusGained
-        jTextFieldUsuario.setText("");
+        getjTextFieldUsuario().setText("");
     }//GEN-LAST:event_jTextFieldUsuarioFocusGained
 
     private void buttonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAcessarActionPerformed
-        conexao.getConexao();
+        
+         
+                conexao.getConexao();
         try {
             
-            conexao.executaSql("select *from usuarios where user_nome='"+jTextFieldUsuario.getText()+"'");
+            conexao.executaSql("select *from usuarios where user_nome='"+getjTextFieldUsuario().getText()+"'");
             conexao.rs.first();
             
             
-            if(conexao.rs.getString("user_senha").equals(jPasswordFieldSenha.getText())){
+            if(conexao.rs.getString("user_senha").equals(getjPasswordFieldSenha().getText())){
                 
-              jPanelLoader.show();
-              jPanelLogin.hide();    
+                getjPanelLoader().show();
+                getjPanelLogin().hide();    
         
         new java.util.Timer().schedule(new TimerTask() {
            @Override
            public void run() {
              
-            TelaPrincipal view = new TelaPrincipal(jTextFieldUsuario.getText());
+            TelaPrincipal view = new TelaPrincipal(getjTextFieldUsuario().getText());
             view.setExtendedState(MAXIMIZED_BOTH);
             view.show();
        
@@ -271,16 +281,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAcessarActionPerformed
 
     private void jPasswordFieldSenhaHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaHierarchyChanged
-        jPasswordFieldSenha.setText("");
+        getjPasswordFieldSenha().setText("");
     }//GEN-LAST:event_jPasswordFieldSenhaHierarchyChanged
 
     private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void buttonAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonAcessarKeyPressed
+        
+        
+        
+    }//GEN-LAST:event_buttonAcessarKeyPressed
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -331,4 +345,88 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jPasswordFieldSenha
+     */
+    public javax.swing.JPasswordField getjPasswordFieldSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    /**
+     * @param jPasswordFieldSenha the jPasswordFieldSenha to set
+     */
+    public void setjPasswordFieldSenha(javax.swing.JPasswordField jPasswordFieldSenha) {
+        this.jPasswordFieldSenha = jPasswordFieldSenha;
+    }
+
+    /**
+     * @return the jTextFieldUsuario
+     */
+    public javax.swing.JTextField getjTextFieldUsuario() {
+        return jTextFieldUsuario;
+    }
+
+    /**
+     * @param jTextFieldUsuario the jTextFieldUsuario to set
+     */
+    public void setjTextFieldUsuario(javax.swing.JTextField jTextFieldUsuario) {
+        this.jTextFieldUsuario = jTextFieldUsuario;
+    }
+
+    /**
+     * @return the img_loader
+     */
+    public javax.swing.JLabel getImg_loader() {
+        return img_loader;
+    }
+
+    /**
+     * @return the jLabelUsername
+     */
+    public javax.swing.JLabel getjLabelUsername() {
+        return jLabelUsername;
+    }
+
+    /**
+     * @param jLabelUsername the jLabelUsername to set
+     */
+    public void setjLabelUsername(javax.swing.JLabel jLabelUsername) {
+        this.jLabelUsername = jLabelUsername;
+    }
+
+    /**
+     * @return the jPanelLoader
+     */
+    public javax.swing.JPanel getjPanelLoader() {
+        return jPanelLoader;
+    }
+
+    /**
+     * @param jPanelLoader the jPanelLoader to set
+     */
+    public void setjPanelLoader(javax.swing.JPanel jPanelLoader) {
+        this.jPanelLoader = jPanelLoader;
+    }
+
+    /**
+     * @return the jPanelLogin
+     */
+    public javax.swing.JPanel getjPanelLogin() {
+        return jPanelLogin;
+    }
+
+    /**
+     * @param jPanelLogin the jPanelLogin to set
+     */
+    public void setjPanelLogin(javax.swing.JPanel jPanelLogin) {
+        this.jPanelLogin = jPanelLogin;
+    }
+
+    /**
+     * @return the jPanelbg
+     */
+    public javax.swing.JPanel getjPanelbg() {
+        return jPanelbg;
+    }
 }

@@ -14,13 +14,20 @@ import modeloBeans.Usuario;
  * @author reubber
  */
 public class TelaCadUser extends javax.swing.JFrame {
-    
+    TelaPrincipal tpview;
     Usuario umodel = new Usuario();
     UsuarioDao udao = new UsuarioDao();
     public ButtonController controller;
     
+    
     public TelaCadUser() {
         initComponents();
+    }
+    
+    public TelaCadUser(String user){
+        initComponents();
+        jLabelLogin.setText(user);    
+   
     }
 
     /**
@@ -44,6 +51,7 @@ public class TelaCadUser extends javax.swing.JFrame {
         jLabelTipo = new javax.swing.JLabel();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         buttonSalvar = new java.awt.Button();
+        jLabelLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,27 +119,34 @@ public class TelaCadUser extends javax.swing.JFrame {
                         .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBGLayout.createSequentialGroup()
                                 .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelUser)
-                                    .addComponent(jLabelSenha))
-                                .addGap(0, 173, Short.MAX_VALUE))
-                            .addComponent(jPasswordFieldPt2)
-                            .addComponent(jTextFieldUser))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelConfirm)
-                            .addComponent(jLabelTipo)
-                            .addComponent(jPasswordFieldPt1)
-                            .addComponent(jComboBoxTipo, 0, 236, Short.MAX_VALUE)))
+                                    .addGroup(jPanelBGLayout.createSequentialGroup()
+                                        .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelUser)
+                                            .addComponent(jLabelSenha))
+                                        .addGap(0, 173, Short.MAX_VALUE))
+                                    .addComponent(jPasswordFieldPt2)
+                                    .addComponent(jTextFieldUser))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelConfirm)
+                                    .addComponent(jLabelTipo)
+                                    .addComponent(jPasswordFieldPt1)
+                                    .addComponent(jComboBoxTipo, 0, 236, Short.MAX_VALUE)))
+                            .addGroup(jPanelBGLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(buttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(83, 83, 83))
                     .addGroup(jPanelBGLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83))
+                        .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelBGLayout.setVerticalGroup(
             jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelLeftPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelBGLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(21, 21, 21)
+                .addComponent(jLabelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addGroup(jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUser)
                     .addComponent(jLabelTipo))
@@ -184,6 +199,7 @@ public class TelaCadUser extends javax.swing.JFrame {
         controller.salvarUserButtonAct();
         
         
+        
     }//GEN-LAST:event_buttonSalvarActionPerformed
 
     /**
@@ -228,6 +244,7 @@ public class TelaCadUser extends javax.swing.JFrame {
     private java.awt.Button buttonSalvar;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabelConfirm;
+    private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelSenha;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelUser;
@@ -265,5 +282,19 @@ public class TelaCadUser extends javax.swing.JFrame {
      */
     public javax.swing.JTextField getjTextFieldUser() {
         return jTextFieldUser;
+    }
+
+    /**
+     * @return the jLabelLogin
+     */
+    public javax.swing.JLabel getjLabelLogin() {
+        return jLabelLogin;
+    }
+
+    /**
+     * @param jLabelLogin the jLabelLogin to set
+     */
+    public void setjLabelLogin(javax.swing.JLabel jLabelLogin) {
+        this.jLabelLogin = jLabelLogin;
     }
 }

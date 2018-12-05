@@ -43,6 +43,7 @@ public class TelaPendecias extends javax.swing.JFrame {
         jTableDadosAtividade = new javax.swing.JTable();
         jButtonAprovar = new javax.swing.JButton();
         jButtonRecusar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,6 +79,15 @@ public class TelaPendecias extends javax.swing.JFrame {
 
         jButtonRecusar.setText("Reporvar");
         getContentPane().add(jButtonRecusar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoutMin.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 40, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,6 +172,13 @@ public class TelaPendecias extends javax.swing.JFrame {
         }              
     }//GEN-LAST:event_jTableDadosAtividadeMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+     
+     dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,6 +215,7 @@ public class TelaPendecias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAprovar;
     private javax.swing.JButton jButtonRecusar;
     private javax.swing.JLabel jLabelSituacao;

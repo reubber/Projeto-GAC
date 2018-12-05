@@ -87,32 +87,40 @@
                   <Component id="jPanelLeftPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelUser" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelUser" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jPasswordFieldPt2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldUser" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelConfirm" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jPasswordFieldPt1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxTipo" alignment="0" pref="236" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="jPasswordFieldPt2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldUser" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="buttonSalvar" min="-2" pref="125" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelConfirm" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelTipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPasswordFieldPt1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBoxTipo" alignment="0" pref="236" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="buttonSalvar" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabelLogin" min="-2" pref="105" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,7 +128,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanelLeftPanel1" alignment="1" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jLabelLogin" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelUser" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -236,6 +246,8 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSalvarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelLogin">
         </Component>
       </SubComponents>
     </Container>

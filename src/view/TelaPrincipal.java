@@ -24,16 +24,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
      ConnectionBD conecta = new ConnectionBD();
      ButtonController controller;
     
+    
+
+    public TelaPrincipal() {
+        initComponents();
+        conecta.getConexao();
+        setResizable(false);
+    }
+    
     public TelaPrincipal(String user) {
        
         initComponents();
         conecta.getConexao();
-        jLabelUser.setText(user);
+        jLabelUserlog.setText(user);
         setResizable(false);
-    }
-
-    public TelaPrincipal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -64,7 +68,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabelHead = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
-        jLabelUser = new javax.swing.JLabel();
+        jLabelUserlog = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,13 +157,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel9))
-                    .addComponent(jLabel5))
-                .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(37, 37, 37))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +179,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         jPanelBG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 250, 640));
@@ -198,7 +203,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Aceitar atividades");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/list.png"))); // NOI18N
         jButton1.setBorder(null);
@@ -209,6 +214,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Add_User_Male_50px.png"))); // NOI18N
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -232,7 +238,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelCabeçalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonLista, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanelCabeçalhoLayout.setVerticalGroup(
             jPanelCabeçalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,10 +253,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jButtonLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jPanelBG.add(jPanelCabeçalho, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 570, 130));
+        jPanelBG.add(jPanelCabeçalho, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 570, 130));
 
         jLabelHead.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabelHead.setText("Sistema de Gerenciamento das Atividades Complementares");
@@ -260,9 +266,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Seja Bem-vindo");
         jPanelBG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
-        jLabelUser.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jLabelUser.setText("jLabel2");
-        jPanelBG.add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 100, -1));
+        jLabelUserlog.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jPanelBG.add(jLabelUserlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 100, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fun.png"))); // NOI18N
         jLabel11.setText("jLabel11");
@@ -284,29 +289,53 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListaActionPerformed
-        TelaPendecias view = new TelaPendecias();
+try{
+            conecta.getConexao();
+            conecta.executaSql("SELECT *FROM usuarios where user_nome='"+getjLabelUserlog().getText()+"'");
+            conecta.rs.first();
+            
+            if(conecta.rs.getString("user_tipo").equals("Coordenador")){
+                
+                TelaPendecias view = new TelaPendecias();
         view.show();
         dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "vc nao tem permissao");
+            }
+        } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"vc nao tem permissao"+ ex);
+        }finally {
+        conecta.closeConnection();
+}
+
+
+
+
+
+
+        
     }//GEN-LAST:event_jButtonListaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         FormAtiv view = new FormAtiv();
+         
+         FormAtiv view = new FormAtiv(jLabelUserlog.getText());
          Atividade model = new Atividade();
          controller = new ButtonController(view,model);
          view.controller = this.controller;
          view.setVisible(true);
          dispose();
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
             conecta.getConexao();
-            conecta.executaSql("SELECT *FROM usuarios where user_nome='"+getjLabelUser().getText()+"'");
+            conecta.executaSql("SELECT *FROM usuarios where user_nome='"+getjLabelUserlog().getText()+"'");
             conecta.rs.first();
             
             if(conecta.rs.getString("user_tipo").equals("Coordenador")){
                 
-                TelaCadUser uview = new TelaCadUser();
+                TelaCadUser uview = new TelaCadUser(jLabelUserlog.getText());
                 Usuario model = new Usuario();
                 controller = new ButtonController(uview,model);
                 uview.controller = this.controller;
@@ -318,7 +347,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null,"vc nao tem permissao"+ ex);
-        }
+        }finally{
+        conecta.closeConnection();
+    }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -372,7 +404,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private java.awt.Label jLabelHead;
-    private javax.swing.JLabel jLabelUser;
+    private javax.swing.JLabel jLabelUserlog;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -385,6 +417,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * @return the jLabelUser
      */
     public javax.swing.JLabel getjLabelUser() {
-        return jLabelUser;
+        return getjLabelUserlog();
+    }
+
+    /**
+     * @return the jLabelUserlog
+     */
+    public javax.swing.JLabel getjLabelUserlog() {
+        return jLabelUserlog;
+    }
+
+    /**
+     * @param jLabelUserlog the jLabelUserlog to set
+     */
+    public void setjLabelUserlog(javax.swing.JLabel jLabelUserlog) {
+        this.jLabelUserlog = jLabelUserlog;
     }
 }
